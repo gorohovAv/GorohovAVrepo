@@ -25,12 +25,16 @@ class Shaft:
     def cut_shaft(self, cut1):
         """
         Метод, дающий возможность уменьшить длину вала
+        >>> shaft = Shaft(500, 60)
+        >>> shaft.cut_shaft(20)
         """
         pass
 
     def substract_diameter(self, substract1):
         """
         Метод, дающий возможность уменьшить диаметр вала
+        >>> shaft = Shaft(500, 60)
+        >>> shaft.substract_diameter(5)
         """
         pass
 
@@ -40,10 +44,10 @@ class Impeller:
     """
     def __init__(self, num_of_vanes: int, output: float):
         """
-               Инициализация класса
-               :param num_of_vanes: количество лопаток
-               :param output: расход ступени в л^3/с
-               >>> impeller = Impeller(10, 45.6)  # инициализация экземпляра класса
+        Инициализация класса
+        :param num_of_vanes: количество лопаток
+        :param output: расход ступени в л^3/с
+        >>> impeller = Impeller(10, 45.6)  # инициализация экземпляра класса
         """
         if not isinstance(num_of_vanes, int):
             raise TypeError("Количество должно быть целым")
@@ -56,15 +60,19 @@ class Impeller:
             raise ValueError("Подача не может быть отрицательной")
         self.output = output
 
-    def add_vane(self, cut1):
+    def add_vane(self, vane):
         """
-        Метод, дающий возможность уменьшить длину вала
+        Метод, дающий возможность добавить лопасть к колесу
+        >>> impeller = Impeller(10, 45.6)
+        >>> impeller.add_vane(1)
         """
         pass
 
     def substract_vane(self, cut1):
         """
         Метод, дающий возможность убрать одну лопасть
+        >>> impeller = Impeller(10, 45.6)
+        >>> impeller.substract_vane(1)
         """
         pass
 
@@ -99,12 +107,16 @@ class Tube:
     def get_inner_diam(self, cut1):
         """
         Метод, позволяющий вычислить внутренний диаметр
+        >>> tube = Tube(150, 20, 3.5)
+        >>> tube.get_inner_diam()
         """
         pass
 
     def cut_tube(self, substract1):
         """
-        Метод, дающий возможность обрезать трубу
+        Метод, дающий возможность Укоротить трубу на заданную величину
+        >>> tube = Tube(150, 20, 3.5)
+        >>> tube.cut_tube(6)
         """
         pass
 
