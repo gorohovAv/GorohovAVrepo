@@ -28,16 +28,19 @@ class Book:
 # TODO написать класс Library
 class Library:
     def __init__(self, books = []):
-        self.books = books
+            self.books = books
+
 
     def get_next_book_id(self):
         # return len(self.books) + 1
-        if len(self.books) < 1:
+        if not self.books:
             return 1
         else:
             return self.books[-1].id_ + 1
 
     def get_index_by_book_id(self, id):
+        if not self.books: # на случай пустого списка
+            raise ValueError("Книги с запрашиваемым id не существует")
         if self.books[-1].id_ < id:
             raise ValueError("Книги с запрашиваемым id не существует")
         else:
@@ -59,3 +62,5 @@ if __name__ == '__main__':
     print(library_with_books.get_next_book_id())  # проверяем следующий id для непустой библиотеки
 
     print(library_with_books.get_index_by_book_id(1))  # проверяем индекс книги с id = 1
+    print(empty_library.get_index_by_book_id(2)) # индекс в пустой бибилиотеке
+
